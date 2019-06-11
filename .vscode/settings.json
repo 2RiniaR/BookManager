@@ -1,0 +1,5 @@
+{
+	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+	"git.ignoreLimitWarning": true,
+	"workbench.panel.defaultLocation": "bottom"
+}
