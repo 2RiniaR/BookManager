@@ -1,6 +1,6 @@
 # BookManager
 
-> My tremendous Nuxt.js project
+茨城高専ベンチャーラボの蔵書管理システムコンペ 提出作品
 
 ## Build Setup
 
@@ -20,3 +20,8 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## ToDo
+
+* Cloud Firestore からのデータの取得
+* 蔵書詳細ページの作成

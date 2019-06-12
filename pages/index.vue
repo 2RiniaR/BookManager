@@ -1,16 +1,14 @@
 <template>
   <v-container>
-    <v-layout row wrap>
-      <h1 class="title">
-        VentureLabo Manager
-      </h1>
-      <h2 class="subtitle">
-        茨城高専 起業部ホームページへようこそ！
-      </h2>
-      <div class="links">
-        <googleLogin />
-      </div>
-    </v-layout>
+    <h1 class="title">
+      VentureLabo Manager
+    </h1>
+    <h2 class="subtitle">
+      茨城高専 起業部ホームページへようこそ！
+    </h2>
+    <div class="links">
+      <googleLogin />
+    </div>
   </v-container>
 </template>
 

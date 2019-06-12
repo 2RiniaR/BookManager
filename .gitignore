@@ -87,4 +87,4 @@ sw.*
 # Mac OSX
 .DS_Store
 
-./plugins/firebase.js
+plugins/firebase.js

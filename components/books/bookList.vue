@@ -1,67 +1,77 @@
 <template>
   <div class="book-list">
+    <v-text-field
+      v-model="search"
+      class="my-3"
+      append-icon="search"
+      label="Search"
+      single-line
+      hide-details
+    />
     <v-data-table
       :headers="headers"
       :items="books"
+      :search="search"
       class="elevation-1"
     >
       <template v-slot:items="props">
-        <td class="text-xs-right">
-          {{ props.item.id }}
-        </td>
-        <td class="text-xs-right">
-          {{ props.item.name }}
-        </td>
-        <td class="text-xs-right">
-          {{ props.item.state }}
-        </td>
-        <td class="text-xs-right">
-          {{ props.item.borrowing_user }}
-        </td>
-        <td class="text-xs-right">
-          {{ props.item.borrowed_at }}
-        </td>
+        <tr
+          :style="{ 'cursor': 'pointer' }"
+          @click="$router.push(`/books/${props.item.id}`)"
+        >
+          <td class="text-xs-right">
+            {{ props.item.name }}
+          </td>
+          <td class="text-xs-right">
+            {{ displayState(props.item.state) }}
+          </td>
+          <td class="text-xs-right">
+            {{ props.item.borrowing_user_id }}
+          </td>
+          <td class="text-xs-right">
+            {{ props.item.borrowed_at }}
+          </td>
+        </tr>
       </template>
     </v-data-table>
   </div>
 </template>
 
 <script>
+const headers = [
+  { text: 'Name', value: 'name' },
+  { text: 'State', value: 'state' },
+  { text: 'Borrowing User', value: 'borrowing_user' },
+  { text: 'Borrowed At', value: 'borrowed_at' }
+]
+
 export default {
+
+  props: [
+    // eslint-disable-next-line
+    'books'
+  ],
+
   data() {
     return {
-      headers: [
-        { text: 'ID', value: 'id' },
-        { text: 'Name', value: 'name' },
-        { text: 'State', value: 'state' },
-        { text: 'Borrowing User', value: 'borrowing_user' },
-        { text: 'Borrowed At', value: 'borrowed_at' }
-      ],
-      books: [
-        {
-          id: 1,
-          name: '熱血アセンブリ',
-          state: 0,
-          borrowing_user: null,
-          borrowed_at: null
-        },
-        {
-          id: 2,
-          name: 'ゼロから作るDeep Learning',
-          state: 1,
-          borrowing_user: 'st11d11',
-          borrowed_at: '2019-05-03'
-        },
-        {
-          id: 3,
-          name: '入門 Python3',
-          state: 1,
-          borrowing_user: 'st12d12',
-          borrowed_at: '2018-12-22'
-        }
-      ]
+      search: '',
+      headers
+    }
+  },
+
+  methods: {
+    displayState(state) {
+      switch (state) {
+        case 0:
+          return 'OK: 借りることができます'
+        case 1:
+          return 'NG: 貸し出し中です'
+        default:
+          return 'NG: 現在ありません'
+      }
     }
   }
+
 }
 </script>
 
