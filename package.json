@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/vuetify": "0.5.5",
     "firebase": "^6.1.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
